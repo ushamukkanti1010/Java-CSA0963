@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class PrintNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of M: ");
+        int m = scanner.nextInt();
+
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+
+        System.out.print("Enter the value of K: ");
+        int k = scanner.nextInt();
+
+        printNumbers(m, n, k);
+    }
+
+    public static void printNumbers(int m, int n, int k) {
+        if (k <= 0) {
+            System.out.println("K should be greater than 0");
+            return;
+        }
+
+        if (m > n) {
+            System.out.println("M should be less than or equal to N");
+            return;
+        }
+
+        for (int i = m; i <= n; i += k) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
