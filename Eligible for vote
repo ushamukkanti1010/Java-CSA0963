@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class VotingEligibility {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter your age: ");
+        String ageInput = sc.next();
+
+        // Check if the input is a number
+        if(ageInput.matches("\\d+")) {
+            int age = Integer.parseInt(ageInput);
+            if(age >= 18) {
+                System.out.println("You are eligible to vote.");
+            } else {
+                int yearsLeft = 18 - age;
+                System.out.println("You are allowed to vote after " + yearsLeft + " years.");
+            }
+        } else if(ageInput.matches("\\d+\\.\\d+")) {
+            System.out.println("Age should be an integer.");
+        } else {
+            System.out.println("Invalid input. Please enter a valid age.");
+        }
+    }
+}
