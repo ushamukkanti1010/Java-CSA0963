@@ -1,0 +1,39 @@
+public class Factorial {
+
+  public static long factorial(int n) {
+    if (n < 0) {
+      throw new IllegalArgumentException("Factorial is not defined for negative numbers");
+    }
+
+    long result = 1;
+    for (int i = 1; i <= n; i++) {
+      result *= i;
+    }
+    return result;
+  }
+
+  public static void main(String[] args) {
+    int[] testCases = {0, -5, 1, 3};
+    String[] invalidInputs = {"Q", "3A"};
+
+    for (int n : testCases) {
+      try {
+        long fact = factorial(n);
+        System.out.printf("%d Factorial = %d\n", n, fact);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
+
+    for (String input : invalidInputs) {
+      try {
+        int n = Integer.parseInt(input);  // Attempt to convert input to integer
+        factorial(n);  // This will throw an exception for non-numeric characters
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input: " + input);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());  // Handle negative input from parseInt
+      }
+    }
+  }
+}
