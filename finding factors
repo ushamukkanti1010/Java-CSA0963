@@ -1,0 +1,35 @@
+public class NumberOfFactors {
+
+  public static int countFactors(int num) {
+    if (num < 0) {
+      throw new IllegalArgumentException("Number cannot be negative");
+    }
+
+    int count = 1;  // 1 is always a factor
+    int sqrt = (int) Math.sqrt(num);  // Optimized square root calculation
+
+    // Iterate efficiently up to the square root
+    for (int i = 1; i <= sqrt; i++) {
+      if (num % i == 0) {
+        count++;
+        if (i * i != num) {  // If not a perfect square, add the corresponding factor
+          count++;
+        }
+      }
+    }
+    return count;
+  }
+
+  public static void main(String[] args) {
+    int[] testCases = {100, 343, 1080, 0};
+
+    for (int num : testCases) {
+      try {
+        int factors = countFactors(num);
+        System.out.printf("Number: %d, Factors: %d\n", num, factors);
+      } catch (IllegalArgumentException e) {
+        System.out.println(e.getMessage());
+      }
+    }
+  }
+}
