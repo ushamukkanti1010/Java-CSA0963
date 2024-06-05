@@ -1,0 +1,28 @@
+public class VowelCount {
+
+  public static int countVowels(String str) {
+    int count = 0;
+    for (char ch : str.toLowerCase().toCharArray()) {
+      if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  public static void main(String[] args) {
+    String[] statements = {
+      "Saveetha School of Engineering",
+      "India is my country",
+      "All are my brothers and sisters",
+      "Why dry sky",
+      "Shy Try Cry",
+      "EDUCATION"
+    };
+
+    for (String statement : statements) {
+      int vowelCount = countVowels(statement);
+      System.out.printf("Number of vowels in '%s': %d\n", statement, vowelCount);
+    }
+  }
+}
