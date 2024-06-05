@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class LeapYear {
+
+  public static boolean isLeapYear(int year) {
+    if (year < 1582) {
+      // Leap year rules changed in 1582. This program follows the modern Gregorian calendar rules.
+      return false;
+    }
+    return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+  }
+
+  public static boolean isValidDate(String date) {
+    try {
+      // Split date into day, month, and year
+      String[] parts = date.split("/");
+      int day = Integer.parseInt(parts[0]);
+      int month = Integer.parseInt(parts[1]);
+      int year = Integer.parseInt(parts[2]);
+
+      // Check for valid ranges
+      return day > 0 && day <= 31 && month > 0 && month <= 12 && year >= 1;
+    } catch (NumberFormatException e) {
+      return false;
+    }
+  }
+
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("Enter Date (DD/MM/YYYY): ");
+    String date = scanner.nextLine();
+
+    if (isValidDate(date)) {
+      int year = Integer.parseInt(date.split("/")[2]);
+      System.out.println(year + (isLeapYear(year) ? " is a Leap Year" : " is not a Leap Year"));
+    } else {
+      System.out.println("Invalid date format. Please enter in DD/MM/YYYY format.");
+    }
+
+    scanner.close();
+  }
+}
