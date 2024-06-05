@@ -1,0 +1,41 @@
+public class PerfectNumber {
+
+  public static boolean isPerfectNumber(int num) {
+    if (num <= 0) {
+      return false; // Perfect numbers are positive
+    }
+
+    int sum = 1;  // Include 1 as a divisor
+    for (int i = 2; i * i <= num; i++) {
+      if (num % i == 0) {
+        sum += i;
+        if (i * i != num) {  // Avoid adding num twice for perfect squares
+          sum += num / i;
+        }
+      }
+    }
+    return sum == num;
+  }
+
+  public static void main(String[] args) {
+    int[] testCases = {6, 17, 496, 8128, 100};
+    String[] invalidInputs = {"26!", "84.1", "-963"};
+
+    for (int num : testCases) {
+      if (isPerfectNumber(num)) {
+        System.out.printf("%d is a Perfect Number\n", num);
+      } else {
+        System.out.printf("%d is not a Perfect Number\n", num);
+      }
+    }
+
+    for (String input : invalidInputs) {
+      try {
+        int num = Integer.parseInt(input);  // Attempt to convert input to integer
+        System.out.println(isPerfectNumber(num));  // This will throw an exception for non-numeric characters
+      } catch (NumberFormatException e) {
+        System.out.println("Invalid input: " + input);
+      }
+    }
+  }
+}
