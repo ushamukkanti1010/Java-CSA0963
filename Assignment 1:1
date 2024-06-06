@@ -1,0 +1,56 @@
+class Student {
+  // Member variables to store student information
+  private String name;
+  private int rollNumber;
+  private double marks;
+
+  // Constructor to initialize student object
+  public Student(String name, int rollNumber, double marks) {
+    this.name = name;
+    this.rollNumber = rollNumber;
+    this.marks = marks;
+  }
+
+  // Setter methods to update student information
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setRollNumber(int rollNumber) {
+    this.rollNumber = rollNumber;
+  }
+
+  public void setMarks(double marks) {
+    this.marks = marks;
+  }
+
+  // Getter methods to access student information
+  public String getName() {
+    return name;
+  }
+
+  public int getRollNumber() {
+    return rollNumber;
+  }
+
+  public double getMarks() {
+    return marks;
+  }
+
+  // Method to display student details
+  public void displayDetails() {
+    System.out.println("Name: " + name);
+    System.out.println("Roll Number: " + rollNumber);
+    System.out.println("Marks: " + marks);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    // Create a student object
+    Student student1 = new Student("Alice", 123, 85.5);
+
+    // Display student details
+    student1.displayDetails();
+  }
+}
