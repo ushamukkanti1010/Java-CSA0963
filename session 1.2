@@ -1,0 +1,81 @@
+public class DataTypeConversionDemo {
+  public static void main(String[] args) {
+    // Implicit conversion (widening) from smaller data types to larger ones
+
+    // byte to short
+    byte b = 10;
+    short s = b; // implicit conversion
+    System.out.println("byte to short: " + s);
+
+    // short to int
+    short sh = 20;
+    int i = sh; // implicit conversion
+    System.out.println("short to int: " + i);
+
+    // int to long
+    int in = 30;
+    long l = in; // implicit conversion
+    System.out.println("int to long: " + l);
+
+    // long to float
+    long ln = 40L;
+    float f = ln; // implicit conversion
+    System.out.println("long to float: " + f);
+
+    // float to double
+    float fl = 3.14f;
+    double d = fl; // implicit conversion
+    System.out.println("float to double: " + d);
+
+    // char to int
+    char c = 'A';
+    int ci = c; // implicit conversion
+    System.out.println("char to int: " + ci);
+
+    // boolean cannot be implicitly converted to other types
+
+    // Explicit conversion (narrowing) from larger data types to smaller ones
+
+    // int to short
+    int intVal = 20;
+    short shortVal = (short) intVal; // explicit conversion
+    System.out.println("int to short: " + shortVal);
+
+    // long to int
+    long longVal = 30L;
+    int intVal2 = (int) longVal; // explicit conversion
+    System.out.println("long to int: " + intVal2);
+
+    // float to long
+    float floatVal = 40.5f;
+    long longVal2 = (long) floatVal; // explicit conversion
+    System.out.println("float to long: " + longVal2);
+
+    // double to float
+    double doubleVal = 3.14159;
+    float floatVal2 = (float) doubleVal; // explicit conversion
+    System.out.println("double to float: " + floatVal2);
+
+    // Overflow and underflow scenarios
+
+    // byte overflow
+    byte byteVal = 127;
+    byteVal++; // overflow, wraps around to -128
+    System.out.println("byte overflow: " + byteVal);
+
+    // short underflow
+    short shortVal2 = -32768;
+    shortVal2--; // underflow, wraps around to 32767
+    System.out.println("short underflow: " + shortVal2);
+
+    // int overflow
+    int intVal3 = 2147483647;
+    intVal3++; // overflow, wraps around to -2147483648
+    System.out.println("int overflow: " + intVal3);
+
+    // long underflow
+    long longVal3 = -9223372036854775808L;
+    longVal3--; // underflow, wraps around to 9223372036854775807L
+    System.out.println("long underflow: " + longVal3);
+  }
+}
