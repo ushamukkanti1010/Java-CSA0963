@@ -1,0 +1,32 @@
+java
+int[][] matrix = new int[rows][columns];
+
+// Initialize matrix (optional)
+if (initialValue != null) {
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < columns; j++) {
+      matrix[i][j] = initialValue;
+    }
+  }
+}
+
+// Print matrix
+System.out.println("Matrix:");
+System.out.println(Arrays.deepToString(matrix));
+
+// Fill a row with a value (optional)
+if (rowToFill != null && valueToFill != null) {
+  Arrays.fill(matrix[rowToFill], valueToFill);
+  System.out.println("Matrix after filling row " + rowToFill + " with " + valueToFill + ":");
+  System.out.println(Arrays.deepToString(matrix));
+}
+
+// Copy a row (optional)
+if (rowToCopy != null) {
+  int[] newRow = Arrays.copyOf(matrix[rowToCopy], matrix[rowToCopy].length);
+  System.out.println("Copied row:");
+  System.out.println(Arrays.toString(newRow));
+}
+
+// Perform matrix operations (optional)
+// ...
