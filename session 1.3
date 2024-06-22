@@ -1,0 +1,31 @@
+public class StringDemo {
+  public static void main(String[] args) {
+    // String constructors
+    String s1 = new String("Hello"); // using new keyword
+    String s2 = "World"; // using string literal
+
+    System.out.println("s1: " + s1);
+    System.out.println("s2: " + s2);
+
+    // String methods
+    String s3 = "Hello World";
+    System.out.println("Length: " + s3.length()); // returns the length of the string
+    System.out.println("UpperCase: " + s3.toUpperCase()); // converts to uppercase
+    System.out.println("LowerCase: " + s3.toLowerCase()); // converts to lowercase
+    System.out.println("Concat: " + s3.concat(" Java")); // concatenates two strings
+    System.out.println("Substring: " + s3.substring(6)); // returns a substring from index 6
+    System.out.println("Substring: " + s3.substring(0, 5)); // returns a substring from index 0 to 5
+    System.out.println("Replace: " + s3.replace("World", "Java")); // replaces a substring
+    System.out.println("IndexOf: " + s3.indexOf("World")); // returns the index of the first occurrence
+    System.out.println("LastIndexOf: " + s3.lastIndexOf("World")); // returns the index of the last occurrence
+    System.out.println("Contains: " + s3.contains("World")); // checks if the string contains a substring
+    System.out.println("Equals: " + s3.equals("Hello World")); // checks if two strings are equal
+    System.out.println("EqualsIgnoreCase: " + s3.equalsIgnoreCase("hello world")); // checks if two strings are equal ignoring case
+    System.out.println("Trim: " + "   Hello World   ".trim()); // removes leading and trailing whitespace
+    System.out.println("Split: ");
+    String[] words = s3.split(" ");
+    for (String word : words) {
+      System.out.println(word);
+    }
+  }
+}
