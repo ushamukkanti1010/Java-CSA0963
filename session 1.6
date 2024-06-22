@@ -1,0 +1,50 @@
+public class ConfusionMatrix {
+  public static void main(String[] args) {
+    // actual labels
+    int[] actual = {1, 1, 1, 1, 1, 0, 0, 0, 0, 0};
+
+    // predicted labels
+    int[] predicted = {1, 1, 1, 1, 0, 1, 0, 0, 0, 0};
+
+    // create confusion matrix
+    int[][] confusionMatrix = new int[2][2];
+    for (int i = 0; i < actual.length; i++) {
+      if (actual[i] == 1 && predicted[i] == 1) {
+        confusionMatrix[1][1]++; // TP
+      } else if (actual[i] == 0 && predicted[i] == 0) {
+        confusionMatrix[0][0]++; // TN
+      } else if (actual[i] == 0 && predicted[i] == 1) {
+        confusionMatrix[0][1]++; // FP
+      } else if (actual[i] == 1 && predicted[i] == 0) {
+        confusionMatrix[1][0]++; // FN
+      }
+    }
+
+    // print confusion matrix
+    System.out.println("Confusion Matrix:");
+    System.out.println("  Predicted  |  Actual");
+    System.out.println("  ---------  |  -------");
+    System.out.println("  1  |  " + confusionMatrix[1][1] + "  |  " + confusionMatrix[1][0]);
+    System.out.println("  ---------  |  -------");
+    System.out.println("  0  |  " + confusionMatrix[0][1] + "  |  " + confusionMatrix[0][0]);
+
+    // calculate metrics
+    int TP = confusionMatrix[1][1];
+    int TN = confusionMatrix[0][0];
+    int FP = confusionMatrix[0][1];
+    int FN = confusionMatrix[1][0];
+
+    double precision = (double) TP / (TP + FP);
+    double recall = (double) TP / (TP + FN);
+    double f1Score = 2 * (precision * recall) / (precision + recall);
+
+    System.out.println("Metrics:");
+    System.out.println("  TP: " + TP);
+    System.out.println("  TN: " + TN);
+    System.out.println("  FP: " + FP);
+    System.out.println("  FN: " + FN);
+    System.out.println("  Precision: " + precision);
+    System.out.println("  Recall: " + recall);
+    System.out.println("  F1-score: " + f1Score);
+  }
+}
