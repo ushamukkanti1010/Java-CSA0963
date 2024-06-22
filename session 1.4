@@ -1,0 +1,34 @@
+public class StringBuilderVsStringBuffer {
+  public static void main(String[] args) {
+    // Simple examples of StringBuilder and StringBuffer
+    StringBuilder sb = new StringBuilder("Hello");
+    sb.append(" World");
+    System.out.println("StringBuilder: " + sb.toString());
+
+    StringBuffer sbf = new StringBuffer("Hello");
+    sbf.append(" World");
+    System.out.println("StringBuffer: " + sbf.toString());
+
+    // Performance comparison
+    int iterations = 1000000;
+    long startTime, endTime;
+
+    // StringBuilder performance test
+    startTime = System.currentTimeMillis();
+    StringBuilder sb2 = new StringBuilder();
+    for (int i = 0; i < iterations; i++) {
+      sb2.append("Hello World");
+    }
+    endTime = System.currentTimeMillis();
+    System.out.println("StringBuilder performance: " + (endTime - startTime) + " ms");
+
+    // StringBuffer performance test
+    startTime = System.currentTimeMillis();
+    StringBuffer sbf2 = new StringBuffer();
+    for (int i = 0; i < iterations; i++) {
+      sbf2.append("Hello World");
+    }
+    endTime = System.currentTimeMillis();
+    System.out.println("StringBuffer performance: " + (endTime - startTime) + " ms");
+  }
+}
