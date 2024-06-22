@@ -1,0 +1,29 @@
+public class MatrixExample {
+  public static void main(String[] args) {
+    int[][] A = new int[1][9]; // matrix A with 1 row and 9 columns
+    int[][] B = new int[1][9]; // matrix B with 1 row and 9 columns
+
+    // first loop: 1 to 9
+    for (int i = 1; i <= 9; i++) {
+      A[0][i-1] = i; // store the value in matrix A
+    }
+
+    // second loop: 9 to 1
+    for (int i = 9; i >= 1; i--) {
+      B[0][9-i] = i; // store the value in matrix B
+    }
+
+    // print matrices A and B
+    System.out.println("Matrix A:");
+    for (int i = 0; i < A[0].length; i++) {
+      System.out.print(A[0][i] + " ");
+    }
+    System.out.println();
+
+    System.out.println("Matrix B:");
+    for (int i = 0; i < B[0].length; i++) {
+      System.out.print(B[0][i] + " ");
+    }
+    System.out.println();
+  }
+}
